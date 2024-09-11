@@ -5,62 +5,80 @@ projeto para prototipo de site escolar com intuito de aprendizado em angular e J
 
 classDiagram
     class Usuario {
-        +id: Long
-        +nome: String
-        +email: String
-        +senha: String
-        <<abstract>>
+        +Long id
+        +String nome
+        +String email
+        +String senha
     }
 
-    Usuario <|-- Professor
-    Usuario <|-- Aluno
-    Usuario <|-- Pai
-    Usuario <|-- Coordenador
-    Usuario <|-- Diretor
-
     class Professor {
-        +inserirNotas(): void
-        +inserirFaltas(): void
+        +Long id
+        +String nome
+        +String email
+        +String senha
+        +String disciplina
+        +List~Nota~ notas
+        +List~Falta~ faltas
     }
 
     class Aluno {
-        +receberNotas(): void
-        +visualizarFaltas(): void
+        +Long id
+        +String nome
+        +String email
+        +String senha
+        +List~Nota~ notas
+        +List~Falta~ faltas
     }
 
     class Pai {
-        +acompanharAluno(): void
-        +enviarMensagemCoordenador(): void
+        +Long id
+        +String nome
+        +String email
+        +String senha
+        +List~Aluno~ filhos
     }
 
     class Coordenador {
-        +comunicarPais(): void
-        +comunicarProfessores(): void
+        +Long id
+        +String nome
+        +String email
+        +String senha
+        +List~Pai~ pais
+        +List~Professor~ professores
     }
 
     class Diretor {
-        +visualizarTudo(): void
+        +Long id
+        +String nome
+        +String email
+        +String senha
     }
 
     class Nota {
-        +id: Long
-        +valor: Double
-        +data: Date
+        +Long id
+        +Double valor
+        +LocalDate data
+        +Usuario aluno
+        +Usuario professor
     }
 
     class Falta {
-        +id: Long
-        +data: Date
-        +justificada: Boolean
+        +Long id
+        +LocalDate data
+        +Boolean justificada
+        +Usuario aluno
+        +Usuario professor
     }
 
-    Professor "1" -- "0..*" Nota: Insere
-    Aluno "1" -- "0..*" Nota: Recebe
-    Professor "1" -- "0..*" Falta: Insere
-    Aluno "1" -- "0..*" Falta: Recebe
-    Pai "1" -- "1" Aluno: Acompanha
-    Coordenador "1" -- "0..*" Pai: Comunica
-    Coordenador "1" -- "0..*" Professor: Comunica
-    Diretor "1" -- "0..*" Coordenador: Supervisiona
+    Pai --> Aluno : "filhos"
+    Professor --> Nota : "adiciona"
+    Aluno --> Nota : "recebe"
+    Professor --> Falta : "adiciona"
+    Aluno --> Falta : "recebe"
+    Coordenador --> Pai : "gerencia"
+    Coordenador --> Professor : "comunica"
+    Diretor --> Coordenador : "monitora"
+    Diretor --> Professor : "monitora"
+    Diretor --> Pai : "monitora"
 
 ```
