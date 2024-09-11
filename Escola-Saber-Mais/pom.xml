@@ -8,10 +8,10 @@
 		<version>3.2.9</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.Escola</groupId>
-	<artifactId>Escola-Saber-Mais</artifactId>
+	<groupId>lab</groupId>
+	<artifactId>escola</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Escola-Saber-Mais</name>
+	<name>escola</name>
 	<description>Demo project for Spring Boot</description>
 	<url/>
 	<licenses>
@@ -33,10 +33,6 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-validation</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
