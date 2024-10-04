@@ -1,84 +1,110 @@
 # Escola
 projeto para prototipo de site escolar com intuito de aprendizado em angular e Java
-
 ``` mermaid
+graph LR
+    subgraph Frontend
+        componentes[Componentes]
+        servicos[Serviços]
+        bootstrap[Bootstrap]
+    end
+
+    subgraph Backend
+        controladores[Controladores REST]
+        servicosBackend[Serviços]
+        repositorios[Repositórios]
+        springSecurity[Spring Security]
+    end
+
+    subgraph Banco_de_Dados
+        tabelas[Tabelas]
+    end
+
+    componentes --> controladores
+    servicos --> controladores
+    bootstrap --> componentes
+
+    controladores --> servicosBackend
+    servicosBackend --> repositorios
+    repositorios --> tabelas
+    springSecurity --> controladores
+
+```
+# modelos de dados
+
+```mermaid
 
 classDiagram
+    Usuario <|-- Aluno
+    Usuario <|-- Professor
+    Usuario <|-- Administrador
+    Serie --> Aluno
+    Serie --> Disciplina
+    Disciplina --> Professor
+    Matricula --> Aluno
+    Matricula --> Serie
+    Nota --> Aluno
+    Nota --> Disciplina
+    Horario --> Serie
+    Horario --> Disciplina
+    Pagamento --> Aluno
+
     class Usuario {
-        +Long id
-        +String nome
-        +String email
-        +String senha
+        Long id
+        String nome
+        String email
+        String senha
+        Enum tipo
     }
-
-    class Professor {
-        +Long id
-        +String nome
-        +String email
-        +String senha
-        +String disciplina
-        +List~Nota~ notas
-        +List~Falta~ faltas
-    }
-
     class Aluno {
-        +Long id
-        +String nome
-        +String email
-        +String senha
-        +List~Nota~ notas
-        +List~Falta~ faltas
+        Long id
+        String cpf
+        LocalDate dataNascimento
+        String nomeMae
+        String nomePai
+        String endereco
     }
-
-    class Pai {
-        +Long id
-        +String nome
-        +String email
-        +String senha
-        +List~Aluno~ filhos
+    class Professor {
+        Long id
+        String cpf
     }
-
-    class Coordenador {
-        +Long id
-        +String nome
-        +String email
-        +String senha
-        +List~Pai~ pais
-        +List~Professor~ professores
+    class Administrador {
+        Long id
+        String cpf
     }
-
-    class Diretor {
-        +Long id
-        +String nome
-        +String email
-        +String senha
+    class Serie {
+        Long id
+        String nome
+        int ano
     }
-
+    class Disciplina {
+        Long id
+        String nome
+    }
+    class Matricula {
+        Long id
+        LocalDate dataMatricula
+    }
     class Nota {
-        +Long id
-        +Double valor
-        +LocalDate data
-        +Usuario aluno
-        +Usuario professor
+        Long id
+        Double nota
+    }
+    class Horario {
+        Long id
+        Enum diaSemana
+        LocalTime horaInicio
+        LocalTime horaFim
+    }
+    class Pagamento {
+        Long id
+        Double valor
+        LocalDate dataPagamento
+    }
+    class Aviso {
+        Long id
+        String titulo
+        String mensagem
+        Enum destinatario
     }
 
-    class Falta {
-        +Long id
-        +LocalDate data
-        +Boolean justificada
-        +Usuario aluno
-        +Usuario professor
-    }
-
-    Pai --> Aluno : "filhos"
-    Professor --> Nota : "adiciona"
-    Aluno --> Nota : "recebe"
-    Professor --> Falta : "adiciona"
-    Aluno --> Falta : "recebe"
-    Coordenador --> Pai : "gerencia"
-    Coordenador --> Professor : "comunica"
-    Diretor --> Coordenador : "monitora"
-    Diretor --> Professor : "monitora"
-    Diretor --> Pai : "monitora"
 
 ```
