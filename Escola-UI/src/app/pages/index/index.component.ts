@@ -16,7 +16,7 @@ export class IndexComponent {
 
   historicoItem= [
     {
-      title: 'Fundada em [ano]',
+      title: `Fundada em ${this.anoFundado}`,
       content: `A ${this.nomeEscola} foi fundada em ${this.anoFundado} com o objetivo de oferecer educação de qualidade para a comunidade local.`
     },
     {

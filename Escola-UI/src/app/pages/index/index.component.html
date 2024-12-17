@@ -10,15 +10,22 @@
     </div>
 
     <div class="historico_container">
-        <h2>Historico</h2>
-        <div *ngFor="let item of historicoItem; let i = index">
-            <div class="historicoItem">
-                <div class="itemNumero">
-                    {{i + 1}}
-                </div>
-                <div class="itemContent">
-                    <h3>{{item.title}}</h3>
-                    <p>{{item.content}}</p>
+        <div class="historico-img">
+            <img src="/assets/escola-img-01.jpg" alt="">
+        </div>
+        <div class="historico-text">
+            <div class="text-title">
+                <h2>Historico</h2>
+            </div>
+            <div class="text-content" *ngFor="let item of historicoItem; let i = index">
+                <div class="historicoItem">
+                    <div class="itemNumero">
+                        {{i + 1}}
+                    </div>
+                    <div class="itemContent">
+                        <h3>{{item.title}}</h3>
+                        <p>{{item.content}}</p>
+                    </div>
                 </div>
             </div>
         </div>
