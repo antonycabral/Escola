@@ -1,0 +1,25 @@
+    <div class="Title_container">
+        <div class="title-overlay"></div>
+        <div class="title-text">
+            <h1 class="Title_title">Escola Raizes</h1>
+            <h2 class="Title_description">Educação de excelência para um futuro brilhante.</h2>
+        </div>
+        <button class="title-btn">
+            <a href="/">Conheça mais</a>
+        </button>
+    </div>
+
+    <div class="historico_container">
+        <h2>Historico</h2>
+        <div *ngFor="let item of historicoItem; let i = index">
+            <div class="historicoItem">
+                <div class="itemNumero">
+                    {{i + 1}}
+                </div>
+                <div class="itemContent">
+                    <h3>{{item.title}}</h3>
+                    <p>{{item.content}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
