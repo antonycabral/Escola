@@ -116,8 +116,10 @@
 
         padding-top: 30px;
 
+        width: 50vw;
+
         & .text-title{
-            width: 50vw;
+            
             display: flex;
             justify-content: center;
             align-items: center;
@@ -160,6 +162,8 @@
 
                 text-align: center;
                 font-weight: bolder;
+
+                border-radius: 10px;
             }
 
             & .itemContent{
@@ -168,8 +172,6 @@
                 justify-content: flex-start;
                 align-items: flex-start;
                 margin: 5px;
-
-                
 
 
                 & h3{
@@ -181,7 +183,103 @@
                 }
             }
         }
+    }
+}
 
+.missao_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
+    & .missao-img{
+        width: 50vw;
+        margin: 15px;
+
+        & img{
+            display: flex;
+            justify-content: center;
+
+            height: 90vh;
+            width: 400px;
+            border-radius: 10px;
+        }
+    }
+
+    & .missao-text{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+
+        padding-top: 30px;
+
+        width: 50vw;
+
+        & .missao-text-title{
+            
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            margin: 2px;
+            margin-bottom: 15px;
+
+            & h2{
+                display: flex;
+                justify-content: flex-start;
+                align-items: flex-start;
+                font-size: 3.5rem;
+
+                width: 50vw;
+                text-align: start;
+            }
+        }
+
+        & .missao-text-title-content{
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+            flex-direction: column;
+            flex-wrap: nowrap;
+
+            width: 40vw;
+            font-size: 1.5rem;
+
+            margin: 10px;
+            margin-left: 0 auto;
+
+            & .missao-itemContent{
+                width: 30vw;
+                height: 15vh;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                margin: 5px;
+                padding: 10px;
+
+                margin-left: 0 auto;
+
+                background-color: #d2ddf9;
+                border-radius: 10px;
+
+                & h3{
+                    display: flex;
+                    justify-content: flex-start;
+
+                    font-size: 1.5rem;
+                    margin-left: 5px;
+                    font-weight: 200;
+                }
+
+                & p{
+                    display: flex;
+                    justify-content: flex-start;
+
+                    font-size: 1.2rem;
+                    margin-left: 5px;
+                }
+            }
+        }
     }
 }

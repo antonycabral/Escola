@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { title } from 'node:process';
 
 @Component({
   selector: 'app-index',
@@ -26,6 +27,21 @@ export class IndexComponent {
     {
       title: 'Tradição e Inovação',
       content: `A ${this.nomeEscola} mantém uma tradição de excelência acadêmica, `
+    }
+  ];
+
+  missaoItem=[
+    {
+      title: 'Missão',
+      content:'Inspirar e preparar os alunos para o sucesso acadêmico, pessoal e profissional, cultivando a paixão pelo conhecimento e o desenvolvimento de habilidades essenciais para o futuro.'
+    },
+    {
+      title: 'Visão',
+      content: 'Ser reconhecida como referência em educação, formando cidadãos éticos, responsáveis e inovadores, capazes de contribuir positivamente para a sociedade.'
+    },
+    {
+      title: 'Valores',
+      content: 'Excelência acadêmica, respeito, responsabilidade, integridade, criatividade, inovação e compromisso com a comunidade.'
     }
   ]
 }

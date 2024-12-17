@@ -30,3 +30,23 @@
             </div>
         </div>
     </div>
+
+    <section class="missao_container">
+        <div class="missao-img">
+            <img src="/assets/sala-escola.jpg" alt="">
+        </div>
+        <div class="missao-text">
+            <div class="missao-text-title">
+                <h2>Missão, Visão e Valores</h2>
+            </div>
+            <div class="missao-text-title-content" *ngFor="let item of missaoItem; let i = index">
+                <div class="missaoItem">
+                    <div class="missao-itemContent">
+                        <h3>{{item.title}}</h3>
+                        <p>{{item.content}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
